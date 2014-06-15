@@ -33,7 +33,8 @@ RUN ./configure \
 		--with-ipv6 \
 		--with-mail \
 		--with-mail_ssl_module \
-		--with-pcre-jit
+		--with-pcre-jit \
+    --add-module=modules/nginx-ldap-auth
 
 RUN make -j"$(nproc)"
 RUN make install \
