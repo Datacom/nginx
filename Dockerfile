@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
 		libgeoip-dev \
 		libpcre3-dev \
 		libssl-dev \
-		libxslt1-dev
+		libxslt1-dev \
+    libldap2-dev
 
 ADD . /usr/src/nginx
 WORKDIR /usr/src/nginx
@@ -34,7 +35,7 @@ RUN ./configure \
 		--with-mail \
 		--with-mail_ssl_module \
 		--with-pcre-jit \
-    --add-module=modules/nginx-ldap-auth
+		--add-module=modules/nginx-auth-ldap
 
 RUN make -j"$(nproc)"
 RUN make install \
