@@ -7,7 +7,12 @@ RUN apt-get update && apt-get install -y \
 		libpcre3-dev \
 		libssl-dev \
 		libxslt1-dev \
-    libldap2-dev
+    libldap2-dev \
+    curl \
+    nano \
+    wget &&\
+    apt-get clean &&\
+    rm -Rf /var/cache/*
 
 ADD . /usr/src/nginx
 WORKDIR /usr/src/nginx
